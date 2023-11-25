@@ -160,6 +160,12 @@ body {
 .header__search-input::placeholder {
     padding: 2px 4px;
     color: var(--text-mid);
+    color: var(--grey-100);
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.1375rem;
 }
 
 #header__searchBtn {
@@ -179,28 +185,38 @@ body {
     justify-content: center;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
-.header__user-info .notification-panel {
+.notification-panel {
     position: absolute;
     top: 50px;
     right: 0px;
     width: 350px;
     height: auto;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
     background-color: var(--white);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 0.875rem;
-    padding: 10px;
+    color: var(--text-dark);
+    padding: 1rem;
+    gap: 1rem;
+    text-align: center;
     z-index: 70;
-    cursor: pointer;
+    border-radius: 0.875rem;
+    border: 1px solid var(--strokes-50);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 #headerNotification {
+    background: none;
+    outline: none;
     padding: 4px;
     width: 1.7rem;
     height: auto;
-    cursor: pointer;
     transition: all 0.4s ease-in-out;
+    border: none;
 }
 
 #headerNotification:hover,
@@ -216,18 +232,6 @@ body {
     border-radius: 8px;
 }
 
-.notification-panel {
-    text-align: center;
-    color: var(--text-dark);
-    display: flex;
-    padding: 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    border: 1px solid var(--stroke-50);
-
-}
-
 .notification-panel div {
     display: flex;
     justify-content: space-between;
@@ -235,10 +239,10 @@ body {
     align-self: stretch;
 }
 
-.notification-panel div p {
+.notification-panel div h6 {
     color: var(--text-dark);
     font-family: Inter;
-    font-size: 0.975rem;
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1.225rem;
@@ -335,6 +339,7 @@ body {
     border: 1px solid var(--stroke-s-50, #DBDBDB);
     background: var(--White, #FFF);
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .header__nav-user-cont {
@@ -395,7 +400,7 @@ body {
     border-radius: 8px;
 }
 
-.header__avatar-desktop h2,
+.header__avatar-desktop p:last-child,
 .header__nav-avatar h2 {
     padding: 4px;
     align-items: center;
@@ -500,7 +505,7 @@ body {
     margin: 32px 0;
 }
 
-.main__subcription {
+.main__subscription {
     display: flex;
     position: relative;
     padding: 12px 8px 12px 16px;
@@ -511,7 +516,7 @@ body {
     background-color: var(--grey-300);
 }
 
-.main__subcription p {
+.main__subscription p {
     width: 90%;
     color: var(--text-light);
     font-family: Inter;
@@ -521,7 +526,7 @@ body {
     line-height: 18.2px;
 }
 
-.main__subcription svg {
+.main__subscription svg {
     width: 20px;
     height: 20px;
     stroke: var(--white);
@@ -532,7 +537,7 @@ body {
     cursor: pointer;
 }
 
-.main__subcription-guide {
+.main__subscription-guide {
     margin-top: 32px;
     position: relative;
     display: flex;
@@ -545,7 +550,7 @@ body {
     box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
 }
 
-.main__subcription-guide__heading {
+.main__subscription-guide__heading {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -554,16 +559,21 @@ body {
 
 }
 
-.main__subcription-guide__heading svg {
+#card-down-btn,
+#card-up-btn {
+    background: none;
+    border: none;
     position: absolute;
     fill: #4A4A4A;
     width: 25px;
     height: 25px;
     top: 15px;
     right: 12px;
+    transition: all 0.4s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.main__subcription-guide h6 {
+.main__subscription-guide h6 {
     color: var(--text-dark);
     font-family: Inter;
     font-size: 14px;
@@ -572,7 +582,7 @@ body {
     line-height: 19.6px;
 }
 
-.main__subcription-guide p {
+.main__subscription-guide p {
     width: 95%;
     color: var(--text-dark);
     font-family: Inter;
@@ -617,12 +627,13 @@ body {
     transition: width 0.5s ease;
 }
 
-.main__subcription-guide__info-menu {
+.main__subscription-guide__info-menu {
     width: 100%;
     padding: 0px 16px 0px 0px;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.main__subcription-guide__info {
+.main__subscription-guide__info {
     margin: 4px 8px;
     flex-direction: row;
     border-radius: 10px;
@@ -630,9 +641,12 @@ body {
     gap: 96px;
     align-self: stretch;
     width: 100%;
+    max-height: auto;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
 }
 
-.main__subcription-guide__info-list {
+.main__subscription-guide__info-list {
     display: flex;
     flex-direction: row;
     padding: 4px 8px 12px 16px;
@@ -643,40 +657,49 @@ body {
     align-self: stretch;
 }
 
-.main__subcription-guide__info h6 {
+.main__subscription-guide__info h6 {
     cursor: pointer;
 }
 
-.main__subcription-guide__info:focus, #to-check:focus, #checked:focus {
+.main__subscription-guide__info.active {
+    /* transition: all 0.5s ease; */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.main__subscription-guide__info:focus,
+#to-check:focus,
+#checked:focus {
     outline: none;
     border-radius: 0.5rem;
     border: 2px solid var(--states-focused, #005BD3);
 }
 
-.main__subcription-guide__info:hover {
+.main__subscription-guide__info:hover {
     background: var(--hover);
 }
 
-.main__subcription-guide__info.active {
+.main__subscription-guide__info.active {
     background: #F3F3F3;
+    max-height: 200px;
+    transition: max-height 0.3s ease-in;
 }
 
-.main__subcription-guide__info,
-.main__subcription-guide__info-details,
-.main__subcription-guide__info-details div {
+.main__subscription-guide__info,
+.main__subscription-guide__info-details,
+.main__subscription-guide__info-details div {
     display: flex;
     align-items: flex-start;
     gap: 16px;
     flex: 1 0 0;
 }
 
-.main__subcription-guide__info-details,
-.main__subcription-guide__info-details div {
+.main__subscription-guide__info-details,
+.main__subscription-guide__info-details div {
     padding: 2px 0px;
     flex-direction: column;
 }
 
-.main__subcription-guide__info-details p {
+.main__subscription-guide__info-details p {
     color: var(--text-mid);
     font-family: Inter;
     font-size: 13px;
@@ -685,10 +708,24 @@ body {
     line-height: 18.2px;
 }
 
-#check-loading, #to-check, #checked {
+.main__subscription-guide__info-details {
+    transition: transform 0.3s ease-out;
+}
+
+.main__subscription-guide__info.active .main__subscription-guide__info-details {
+    transform: translateY(0);
+}
+
+#check-loading,
+#to-check,
+#checked {
     width: 24px;
     height: 24px;
     cursor: pointer;
+}
+
+.check-loading {
+    animation: rotate 0.7s infinite linear;
 }
 
 .info-btn {
@@ -709,7 +746,7 @@ body {
         display: none;
     }
 
-    .main__subcription-guide__info-icon {
+    .main__subscription-guide__info-icon {
         display: none;
     }
 }
@@ -748,7 +785,7 @@ body {
         width: 358px;
     }
 
-    .main__subcription {
+    .main__subscription {
         margin: 0 auto;
         display: flex;
         padding: 12px 8px 12px 16px;
@@ -760,21 +797,21 @@ body {
         background: var(--grey-300);
     }
 
-    .main__subcription svg {
+    .main__subscription svg {
         position: absolute;
         top: 18px;
         right: 8px;
     }
 
-    .main__subcription a {
+    .main__subscription a {
         margin-right: 30px;
     }
 
-    .main__subcription p {
+    .main__subscription p {
         width: auto;
     }
 
-    .main__subcription-guide {
+    .main__subscription-guide {
         margin: 16px auto;
         display: flex;
         width: 800px;
@@ -786,8 +823,28 @@ body {
         box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
     }
 
-    .main__subcription-guide__info-list {
+    .main__subscription-guide__info-list {
         padding: 0px 8px 12px 8px;
     }
 
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

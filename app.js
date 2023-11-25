@@ -1,5 +1,5 @@
 document.addEventListener ('DOMContentLoaded', function () {
-  const notificationBell = document.getElementById ('headerNotificationBar');
+  const notificationBell = document.getElementById ('headerNotification');
   const notificationPanel = document.getElementsByClassName (
     'notification-panel'
   )[0];
@@ -12,20 +12,20 @@ document.addEventListener ('DOMContentLoaded', function () {
   );
   const menuPanel = document.getElementsByClassName ('header__nav')[0];
   const CallOutCloseBtn = document.getElementById ('callout-close');
-  const calloutPanel = document.getElementsByClassName ('main__subcription')[0];
+  const calloutPanel = document.getElementById ('callout__subscription_card');
   const cardUpBtn = document.getElementById ('card-up-btn');
   const cardDownBtn = document.getElementById ('card-down-btn');
   const setupGuideCard = document.getElementsByClassName (
-    'main__subcription-guide__info-menu'
+    'main__subscription-guide__info-menu'
   )[0];
   const onboardingSteps = document.querySelectorAll (
-    '.main__subcription-guide__info'
+    '.main__subscription-guide__info'
   );
   const onboardingStepsInfo = document.querySelectorAll (
-    '.main__subcription-guide__info-details div'
+    '.main__subscription-guide__info-details div'
   );
   const onboardingStepsImage = document.querySelectorAll (
-    '.main__subcription-guide__info-icon'
+    '.main__subscription-guide__info-icon'
   );
   const searchBox = document.getElementById ('searchBox');
   const inputField = document.querySelector ('.header__search-input');
@@ -38,7 +38,7 @@ document.addEventListener ('DOMContentLoaded', function () {
 
   const progressValue = document.getElementById ('currentProgress');
 
-  const allMenu = [menu_desktop[0], menu[0]];
+  const allMenuBtn = [menu_desktop[0], menu[0]];
   const listItems = [menus, ...listItem];
 
   // Function to update focus based on arrow key navigation
@@ -69,16 +69,13 @@ document.addEventListener ('DOMContentLoaded', function () {
 
   function toggleMenuPanel () {
     menuPanel.classList.toggle ('non-active');
-    const isOpen = menuPanel.classList.contains ('non-active')
-      ? 'false'
-      : 'true';
-    allMenu.forEach (item => {
-      return item.setAttribute ('aria-expanded', isOpen);
+    allMenuBtn.forEach (item => {
+      return item.setAttribute ('aria-expanded',  `${menuPanel.classList.contains('non-active') ? "false" : "true"}`);
     });
-    menuPanel.setAttribute ('aria-hidden', isOpen);
+    menuPanel.setAttribute ('aria-hidden', `${menuPanel.classList.contains('non-active') ? "true" : "false"}`);
   }
 
-  allMenu.forEach (item => {
+  allMenuBtn.forEach (item => {
     item.addEventListener ('click', toggleMenuPanel);
     item.addEventListener ('keydown', function (event) {
       if (event.key === 'Enter') {
@@ -104,11 +101,9 @@ document.addEventListener ('DOMContentLoaded', function () {
 
   function toggleNotificationPanel () {
     notificationPanel.classList.toggle ('non-active');
-    const isOpen = notificationPanel.classList.contains ('non-active')
-      ? 'false'
-      : 'true';
-    notificationBell.setAttribute ('aria-expanded', isOpen);
-    notificationPanel.setAttribute ('aria-hidden', isOpen);
+    
+    notificationBell.setAttribute ('aria-expanded', `${notificationPanel.classList.contains ('non-active') ? "false" : "true"}`);
+    notificationPanel.setAttribute ('aria-hidden', `${notificationPanel.classList.contains ('non-active') ? "true" : "false"}`);
   }
 
   // Toggle the panel when clicking the notification bell
@@ -166,8 +161,8 @@ document.addEventListener ('DOMContentLoaded', function () {
     calloutPanel.classList.add ('non-active');
     const isOpen = calloutPanel.classList.contains ('non-active');
     calloutPanel.setAttribute ('aria-hidden', isOpen);
-    cardDownBtn.focus ();
-    cardUpBtn.focus ();
+    cardDownBtn.focus();
+    cardUpBtn.focus();
   }
 
   CallOutCloseBtn.addEventListener ('click', removeCalloutPanel);
@@ -189,7 +184,8 @@ document.addEventListener ('DOMContentLoaded', function () {
     cardUpBtn.classList.add ('non-active');
     const isOpen = setupGuideCard.classList.contains ('non-active');
 
-    cardDownBtn.setAttribute ('aria-expanded', !isOpen);
+    cardDownBtn.setAttribute ('aria-expanded', `${setupGuideCard.classList.contains ('non-active') ? "false" : "true"}`);
+    cardUpBtn.setAttribute ('aria-expanded', `${setupGuideCard.classList.contains ('non-active') ? "false" : "true"}`);
     setupGuideCard.setAttribute ('aria-hidden', isOpen);
   }
 
@@ -200,7 +196,8 @@ document.addEventListener ('DOMContentLoaded', function () {
     cardUpBtn.focus ();
     const isOpen = setupGuideCard.classList.contains ('non-active');
 
-    cardUpBtn.setAttribute ('aria-expanded', !isOpen);
+    cardUpBtn.setAttribute ('aria-expanded', `${setupGuideCard.classList.contains ('non-active') ? "false" : "true"}`);
+    cardDownBtn.setAttribute ('aria-expanded', `${setupGuideCard.classList.contains ('non-active') ? "false" : "true"}`);
     setupGuideCard.setAttribute ('aria-hidden', isOpen);
   }
 
@@ -252,8 +249,8 @@ document.addEventListener ('DOMContentLoaded', function () {
       // Close all other steps
       toggleOnboardingSteps (currentStep);
 
-      // Toggle the active class for the clicked step
-      this.classList.toggle ('active');
+      // add the active class for the clicked step
+      this.classList.add ('active');
     });
 
     let onboardingFocusedIndex = -1;
@@ -289,8 +286,8 @@ document.addEventListener ('DOMContentLoaded', function () {
         // Close all other steps
         toggleOnboardingSteps (currentStep);
 
-        this.classList.toggle ('active');
-        // Toggle the active class for the clicked step
+        this.classList.add ('active');
+        // add the active class for the clicked step
       }
       if (event.key === ' ') {
         event.preventDefault ();
@@ -299,8 +296,8 @@ document.addEventListener ('DOMContentLoaded', function () {
         // Close all other steps
         toggleOnboardingSteps (currentStep);
 
-        this.classList.toggle ('active');
-        // Toggle the active class for the clicked step
+        this.classList.add ('active');
+        // add the active class for the clicked step
       }
     });
   });
@@ -323,20 +320,24 @@ document.addEventListener ('DOMContentLoaded', function () {
     let loadingTimer = setInterval (() => {
       // Code to be executed at intervals
       checkList[index].classList.add ('non-active');
+      checkLoadingList[index].setAttribute('aria-busy', 'true');
       checkLoadingList[index].classList.remove ('non-active');
     }, 300);
 
     // Clear the interval and toggle classes after a specified time
     setTimeout (() => {
       clearInterval (loadingTimer);
+      checkLoadingList[index].setAttribute('aria-busy', 'false');
       checkLoadingList[index].classList.add ('non-active');
       checkList[index].classList.add ('non-active');
       checkedList[index].classList.remove ('non-active');
-      if(event.key === ' ' || event.key === 'Enter') {
-        checkedList[index].focus();
+      checkList[index].setAttribute('aria-checked', 'true');
+    checkedList[index].setAttribute('aria-checked', 'true');
+      if (event.key === ' ' || event.key === 'Enter') {
+        checkedList[index].focus ();
       }
       checkCompleteSetupProgress ();
-    }, 1000);
+    }, 800);
   }
 
   function toggleUndoCompleteSetupProgress (index, event = '') {
@@ -344,20 +345,24 @@ document.addEventListener ('DOMContentLoaded', function () {
     let loadingTimer = setInterval (() => {
       // Code to be executed at intervals
       checkedList[index].classList.add ('non-active');
+      checkLoadingList[index].setAttribute('aria-busy', 'true');
       checkLoadingList[index].classList.remove ('non-active');
     }, 300);
 
     // Clear the interval and toggle classes after a specified time
     setTimeout (() => {
       clearInterval (loadingTimer);
+      checkLoadingList[index].setAttribute('aria-busy', 'false');
       checkLoadingList[index].classList.add ('non-active');
       checkedList[index].classList.add ('non-active');
       checkList[index].classList.remove ('non-active');
-      if(event.key === ' ' || event.key === 'Enter') {
-        checkList[index].focus();
+      checkList[index].setAttribute('aria-checked', 'false');
+    checkedList[index].setAttribute('aria-checked', 'false');
+      if (event.key === ' ' || event.key === 'Enter') {
+        checkList[index].focus ();
       }
       checkCompleteSetupProgress ();
-    }, 1000);
+    }, 800);
   }
 
   checkList.forEach ((check, index) => {
