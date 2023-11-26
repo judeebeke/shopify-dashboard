@@ -6,29 +6,29 @@ document.addEventListener ('DOMContentLoaded', function () {
   const menus = document.getElementById ('menu-btn');
   const listItem = document.querySelectorAll ('.menu-list__items');
   const linkList = document.querySelectorAll ('a');
-  const menu = document.getElementsByClassName ('header__avatar');
+  const menu = document.getElementsByClassName ('topbar__profile');
   const menu_desktop = document.getElementsByClassName (
-    'header__avatar-desktop'
+    'topbar__profile-desktop'
   );
-  const menuPanel = document.getElementsByClassName ('header__nav')[0];
+  const menuPanel = document.getElementsByClassName ('topbar__nav')[0];
   const CallOutCloseBtn = document.getElementById ('callout-close');
   const calloutPanel = document.getElementById ('callout__subscription_card');
   const cardUpBtn = document.getElementById ('card-up-btn');
   const cardDownBtn = document.getElementById ('card-down-btn');
   const setupGuideCard = document.getElementsByClassName (
-    'main__subscription-guide__info-menu'
+    'main__setup-guide__info-menu'
   )[0];
   const onboardingSteps = document.querySelectorAll (
-    '.main__subscription-guide__info'
+    '.main__setup-guide__info'
   );
   const onboardingStepsInfo = document.querySelectorAll (
-    '.main__subscription-guide__info-details div'
+    '.main__setup-guide__info-details div'
   );
   const onboardingStepsImage = document.querySelectorAll (
-    '.main__subscription-guide__info-icon'
+    '.main__setup-guide__info-icon'
   );
   const searchBox = document.getElementById ('searchBox');
-  const inputField = document.querySelector ('.header__search-input');
+  const inputField = document.querySelector ('.topbar__search-input');
 
   const checkList = document.querySelectorAll ('.to-check');
   const checkLoadingList = document.querySelectorAll ('.check-loading');
@@ -36,7 +36,7 @@ document.addEventListener ('DOMContentLoaded', function () {
 
   const progressBar = document.getElementById ('progressBar');
 
-  const progressValue = document.getElementById ('currentProgress');
+  const progressValue = document.getElementById ('setupProgress');
 
   const allMenuBtn = [menu_desktop[0], menu[0]];
   const listItems = [menus, ...listItem];

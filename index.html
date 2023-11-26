@@ -3,38 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopify Onboarding Dashboard</title>
+    <title>Shopify Admin Dashboard Hackathon</title>
     <link rel="stylesheet" href="./app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="./app.js" defer></script>
 </head>
 
 <body>
-    <header class="header">
-        <a href="https://www.shopify.com" class="header__logo" aria-label="Shopify Logo">
+    <header class="topbar">
+        <a href="https://www.shopify.com" class="topbar__logo" aria-label="Shopify Logo">
             <img src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg" loading="lazy"
                 alt="Shopify Logo">
         </a>
-        <a href="https://www.shopify.com" class="header__logo-mobile" aria-label="Shopify Logo">
+        <a href="https://www.shopify.com" class="topbar__logo-mobile" aria-label="Shopify Logo">
             <img src="https://crushingit.tech/hackathon-assets/shopify-icon.svg" loading="lazy" alt="Shopify Logo">
         </a>
-        <div class="header__search-box" id="searchBox">
-            <svg id="header__searchBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="#616161" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <div class="topbar__search-box" id="searchBox">
+            <svg id="topbar__searchBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="#B5B5B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
-            <input aria-label="Search" class="header__search-input" type="text" name="search" placeholder="Search" />
+            <input aria-label="Search" class="topbar__search-input" type="text" name="search" placeholder="Search" />
         </div>
-        <div class="header__user-info">
-            <button id="headerNotification" aria-controls="notificationPanel" aria-haspopup="true" aria-expanded="false">
-                <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="topbar__user-info">
+            <button id="headerNotification" aria-label="Notification Button" aria-controls="notificationPanel"
+                aria-haspopup="true" aria-expanded="false">
+                <svg viewBox="0 0 21 20" aria-label="Bell Icon" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M7.75203 14.4239L5.3061 14.1427C3.45144 13.9295 2.92542 11.4844 4.52838 10.5274L4.5933 10.4886C5.466 9.96761 6.00045 9.02609 6.00045 8.00969V7.5C6.00045 5.01472 8.01517 3 10.5005 3C12.9857 3 15.0005 5.01472 15.0005 7.5V8.00969C15.0005 9.02609 15.5349 9.96761 16.4076 10.4886L16.4725 10.5274C18.0755 11.4844 17.5495 13.9295 15.6948 14.1427L13.152 14.435V14.8C13.152 16.2912 11.9432 17.5 10.452 17.5C8.96086 17.5 7.75203 16.2912 7.75203 14.8V14.4239ZM11.652 14.5H9.25203V14.8C9.25203 15.4627 9.78929 16 10.452 16C11.1148 16 11.652 15.4627 11.652 14.8V14.5ZM8.50045 13H12.5005L15.5235 12.6525C15.953 12.6032 16.0748 12.0369 15.7036 11.8153L15.6387 11.7766C15.5591 11.7291 15.4815 11.6793 15.4057 11.6273C15.2506 11.521 15.1036 11.4055 14.9651 11.2818C14.9405 11.2598 14.9162 11.2377 14.8922 11.2152C14.0144 10.395 13.5005 9.23833 13.5005 8.00969V7.5C13.5005 5.84315 12.1573 4.5 10.5005 4.5C8.8436 4.5 7.50045 5.84315 7.50045 7.5V8.00969C7.50045 9.23833 6.98651 10.395 6.10871 11.2152C6.08469 11.2377 6.06039 11.2598 6.03583 11.2818C5.89734 11.4055 5.75029 11.521 5.59523 11.6273C5.51945 11.6793 5.44176 11.7291 5.36222 11.7766L5.29729 11.8153C4.9261 12.0369 5.0479 12.6032 5.47739 12.6525L8.50045 13Z"
-                        fill="#fff" />
+                        fill="#E3E3E3" />
                 </svg>
             </button>
-            <div class="notification-panel non-active" id="notificationPanel" role="region" aria-hidden="true" role="alertdialog"
-                aria-labelledby="notification-title">
+            <div class="notification-panel non-active" id="notificationPanel" role="region" aria-hidden="true"
+                role="alertdialog" aria-labelledby="notification-title">
                 <div>
                     <h6 id="notification-title">Alerts</h6>
                     <span>
@@ -65,16 +69,18 @@
                     <p>Alerts about your store and account will show here</p>
                 </div>
             </div>
-            <button class="header__avatar" tabindex="0" aria-label="Davii Collection" aria-expanded="false" aria-haspopup="true">DC</button>
-            <button class="header__avatar-desktop" aria-expanded="false" aria-haspopup="true" id="menu-btn" tabindex="0"
-                aria-label="Davii Collection">
+            <button class="topbar__profile" tabindex="0" aria-label="Davii Collection" aria-expanded="false"
+                aria-haspopup="true">DC</button>
+            <button class="topbar__profile-desktop" aria-expanded="false" aria-haspopup="true" id="menu-btn"
+                tabindex="0" aria-label="Davii Collection">
                 <p>Davii Collection</p>
                 <p>DC</p>
             </button>
-            <nav class="header__nav non-active" aria-hidden="true" role="navigation" aria-label="Main" aria-label="Shopify Navigation">
-                <div class="header__nav-user-cont">
-                    <div class="header__nav-user">
-                        <div class="header__nav-avatar">
+            <nav class="topbar__nav non-active" aria-hidden="true" role="navigation" aria-label="Main"
+                aria-label="Shopify Navigation">
+                <div class="topbar__nav-user-cont">
+                    <div class="topbar__nav-user">
+                        <div class="topbar__nav-profile">
                             <h2>DC</h2>
                             <p>Davii Collection</p>
                         </div>
@@ -87,7 +93,7 @@
                     </div>
 
                 </div>
-                <div class="header__nav-store">
+                <div class="topbar__nav-store">
                     <a tabindex="0" class="menu-list__items" href="admin.shopify.com" role="link">
                         <svg width="30" height="24" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -133,72 +139,72 @@
         <div class="main__subscription" id="callout__subscription_card" role="region" aria-hidden="false"
             aria-labelledby="callout__subscription_notice">
             <p id="callout__subscription_notice">Extend your trial for $1/month for 3 months on select plans.</p>
-            <a href="shopify.com/pricing" class="btn-light focused" role="button" aria-label="Select a plan">Select a
+            <a href="shopify.com/pricing" class="btn-light" role="button" aria-label="Select a plan">Select a
                 plan</a>
-            <svg class="focused" viewBox="0 0 21 20" role="button" id="callout-close"
-                aria-controls="callout__subscription_card" aria-label="Close" fill="none" tabindex="0"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
-                    fill="#fff" />
-            </svg>
-        </div>
-        <div class="main__subscription-guide" role="region" id="subscription-guide__card" aria-labelledby="setupGuide">
-            <div class="main__subscription-guide__heading" id="setupGuide">
+            <button class="focused" id="callout-close" aria-label="Close Subscription Card">
+                <svg viewBox="0 0 21 20" aria-controls="callout__subscription_card" aria-label="Close Icon" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
+                        fill="#fff" />
+                </svg>
+            </button>
+        </div> 
+        <div class="main__setup-guide" role="region" id="setup-guide__card" aria-labelledby="setupGuide">
+            <div class="main__setup-guide__heading" id="setupGuide">
                 <span>
                     <h6>Setup guide</h6>
                     <p>
                         Use this personalized guide to get your store up and running.
                     </p>
                 </span>
-                <div class="user-progress" aria-describedby="currentProgress">
-                    <p><span id="currentProgress">0</span> / 5 completed</p>
+                <div class="user-progress" aria-labelledby="setupProgress">
+                    <p><span id="setupProgress">0</span> / 5 completed</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
                         <div class="progress" id="progressBar"></div>
                     </div>
                 </div>
-                <button id="card-down-btn" aria-controls="subscription-guide__card" aria-expanded="true" aria-label="Open" class="non-active"
-                >
+                <button id="card-down-btn" aria-controls="setup-guide__card" aria-expanded="true" aria-label="Open"
+                    class="non-active">
                     <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
-                        fill="#4A4A4A" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
+                            fill="#4A4A4A" />
                     </svg>
                 </button>
-                <button id="card-up-btn" aria-expanded="true"  aria-controls="subscription-guide__card" aria-label="Close">
-                <svg 
-                viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z"
-                    fill="#4A4A4A" />
-            </svg>
-               </button>
+                <button id="card-up-btn" aria-expanded="true" aria-controls="setup-guide__card" aria-label="Close">
+                    <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z"
+                            fill="#4A4A4A" />
+                    </svg>
+                </button>
 
             </div>
-            <div class="main__subscription-guide__info-menu" aria-describedby="setupGuide" aria-hidden="false">
-                <div class="main__subscription-guide__info active" aria-labelledby="guide-heading-1" tabindex="0"
+            <div class="main__setup-guide__info-menu" aria-describedby="setupGuide" aria-hidden="false">
+                <div class="main__setup-guide__info active" aria-labelledby="guide-heading-1" tabindex="0"
                     data-list="1">
-                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 32 32" fill="none">
+                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
                         <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" stroke-dasharray="4 6" />
                     </svg>
 
-                    <svg id="check-loading" aria-busy="false" class="check-loading non-active" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 28 28" fill="none">
+                    <svg id="check-loading" aria-busy="false" class="check-loading non-active"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
                         <path
                             d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
                             stroke="#303030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="10" fill="#303030"></circle>
                         <path
                             d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
                             fill="#fff"></path>
                     </svg>
-                    <div id="guide-heading-1" class="main__subscription-guide__info-details">
+                    <div id="guide-heading-1" class="main__setup-guide__info-details">
                         <h6>Customize your online store</h6>
                         <div data-list_info="1">
                             <p>Choose a theme and add your logo, colors, and images to reflect your brand. <span
@@ -206,64 +212,67 @@
                             <button class="btn-dark">Customize theme</button>
                         </div>
                     </div>
-                    <img class="main__subscription-guide__info-icon non-active"
+                    <img class="main__setup-guide__info-icon"
                         src="https://crushingit.tech/hackathon-assets/customise-store.png" />
                 </div>
-                <div class="main__subscription-guide__info" tabindex="0" aria-labelledby="guide-heading-2" data-list="2">
-                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 32 32" fill="none">
+                <div class="main__setup-guide__info" tabindex="0" aria-labelledby="guide-heading-2" data-list="2">
+                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
                         <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" stroke-dasharray="4 6" />
                     </svg>
 
-                    <svg id="check-loading" aria-busy="false" class="check-loading non-active" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 28 28" fill="none">
+                    <svg id="check-loading" aria-busy="false" class="check-loading non-active"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
                         <path
                             d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
                             stroke="#303030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="10" fill="#303030"></circle>
                         <path
                             d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
                             fill="#fff"></path>
                     </svg>
-                    <div id="guide-heading-2" class="main__subscription-guide__info-details">
+                    <div id="guide-heading-2" class="main__setup-guide__info-details">
                         <h6>Add your first product</h6>
                         <div data-list_info="2" class="non-active">
                             <p>Write a description, add photos, and set pricing for the products you plan to sell. <span
                                     class="info-btn">Learn more</span></p>
-                            <button class="btn-dark">Add product</button>
+                                    <span class="setup-guide__group-btn">
+                                        <button class="btn-dark" aria-label="Add Product Button">Add product</button>
+                                        <button class="btn-blank">Import product</button>
+                                    </span>
                         </div>
 
                     </div>
-                    <img class="main__subscription-guide__info-icon non-active"
+                    <img class="main__setup-guide__info-icon non-active"
                         src="https://crushingit.tech/hackathon-assets/product.png" />
                 </div>
-                <div class="main__subscription-guide__info" tabindex="0" aria-labelledby="guide-heading-3" data-list="3">
-                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 32 32" fill="none">
+                <div class="main__setup-guide__info" tabindex="0" aria-labelledby="guide-heading-3" data-list="3">
+                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
                         <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" stroke-dasharray="4 6" />
                     </svg>
 
-                    <svg id="check-loading" aria-busy="false" class="check-loading non-active" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 28 28" fill="none">
+                    <svg id="check-loading" aria-busy="false" class="check-loading non-active"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
                         <path
                             d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
                             stroke="#303030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="10" fill="#303030"></circle>
                         <path
                             d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
                             fill="#fff"></path>
                     </svg>
-                    <div id="guide-heading-3" class="main__subscription-guide__info-details">
+                    <div id="guide-heading-3" class="main__setup-guide__info-details">
                         <h6>Add a custom domain</h6>
                         <div data-list_info="3" class="non-active">
                             <p>Your current domain is 222219.myshopify.com but you can add a custom domain to help
@@ -272,31 +281,31 @@
                             <button class="btn-dark">Add domain</button>
                         </div>
                     </div>
-                    <img class="main__subscription-guide__info-icon non-active"
+                    <img class="main__setup-guide__info-icon non-active"
                         src="https://crushingit.tech/hackathon-assets/website.png" />
                 </div>
-                <div class="main__subscription-guide__info" tabindex="0" aria-labelledby="guide-heading-4" data-list="4">
-                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 32 32" fill="none">
+                <div class="main__setup-guide__info" tabindex="0" aria-labelledby="guide-heading-4" data-list="4">
+                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
                         <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" stroke-dasharray="4 6" />
                     </svg>
 
-                    <svg id="check-loading" aria-busy="false" class="check-loading non-active" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 28 28" fill="none">
+                    <svg id="check-loading" aria-busy="false" class="check-loading non-active"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
                         <path
                             d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
                             stroke="#303030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="10" fill="#303030"></circle>
                         <path
                             d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
                             fill="#fff"></path>
                     </svg>
-                    <div id="guide-heading-4" class="main__subscription-guide__info-details">
+                    <div id="guide-heading-4" class="main__setup-guide__info-details">
                         <h6>Name your store</h6>
                         <div data-list_info="4" class="non-active">
                             <p>Your temporary store name is currently Davii collections. The store name appears in your
@@ -304,31 +313,31 @@
                             <button class="btn-dark">Name store</button>
                         </div>
                     </div>
-                    <img class="main__subscription-guide__info-icon non-active"
+                    <img class="main__setup-guide__info-icon non-active"
                         src="https://crushingit.tech/hackathon-assets/name-store.png" />
                 </div>
-                <div class="main__subscription-guide__info" tabindex="0" aria-labelledby="guide-heading-5" data-list="5">
-                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 32 32" fill="none">
+                <div class="main__setup-guide__info" tabindex="0" aria-labelledby="guide-heading-5" data-list="5">
+                    <svg id="to-check" role="checkbox" aria-checked="false" tabindex="0" class="to-check"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
                         <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round"
                             stroke-linejoin="round" stroke-dasharray="4 6" />
                     </svg>
 
-                    <svg id="check-loading" aria-busy="false" class="check-loading non-active" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 28 28" fill="none">
+                    <svg id="check-loading" aria-busy="false" class="check-loading non-active"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
                         <path
                             d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
                             stroke="#303030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg id="checked" role="checkbox" aria-checked="false" tabindex="0" class="checked non-active"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="10" fill="#303030"></circle>
                         <path
                             d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
                             fill="#fff"></path>
                     </svg>
-                    <div idaria-labelledby="guide-heading-5" class="main__subscription-guide__info-details">
+                    <div idaria-labelledby="guide-heading-5" class="main__setup-guide__info-details">
                         <h6>Set up a payment provider</h6>
                         <div data-list_info="5" class="non-active">
                             <p>Choose a payment provider to start accepting payments. You'll need to create an account
@@ -338,7 +347,7 @@
                             <button class="btn-dark">Set up Payment</button>
                         </div>
                     </div>
-                    <img class="main__subscription-guide__info-icon non-active"
+                    <img class="main__setup-guide__info-icon non-active"
                         src="https://crushingit.tech/hackathon-assets/payment.png" />
                 </div>
             </div>
