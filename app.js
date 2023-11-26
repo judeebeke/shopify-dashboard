@@ -330,6 +330,7 @@ document.addEventListener ('DOMContentLoaded', function () {
       checkLoadingList[index].setAttribute('aria-busy', 'false');
       checkLoadingList[index].classList.add ('non-active');
       checkList[index].classList.add ('non-active');
+      checkedList[index].arialLabel = checkList[index].ariaLabel.replace('Is', '')
       checkedList[index].classList.remove ('non-active');
       checkList[index].setAttribute('aria-checked', 'true');
     checkedList[index].setAttribute('aria-checked', 'true');
